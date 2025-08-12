@@ -45,9 +45,9 @@ const Button: React.FC<ButtonProps> = ({
 
   // If asChild is true, render children directly with the classes
   if (asChild) {
-    const child = React.Children.only(children) as React.ReactElement;
+    const child = React.Children.only(children) as React.ReactElement<any>;
     return React.cloneElement(child, {
-      className: classNames(classes, child.props.className),
+      className: classNames(classes, child.props?.className),
       disabled: disabled || loading,
       ...props,
     });
