@@ -302,8 +302,8 @@ export const authApi = {
   },
 
   async signInWithGitHub() {
-    // Force redirect to Vercel URL for GitHub OAuth
-    const redirectUrl = 'https://blog-cms-ashen-five.vercel.app/auth/callback';
+    // GitHub OAuth must redirect to Supabase callback URL
+    const redirectUrl = 'https://oywkxaufssfcavcquqod.supabase.co/auth/v1/callback';
     
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
@@ -318,7 +318,7 @@ export const authApi = {
 
   async signInWithOAuth(provider: 'github' | 'google' | 'discord') {
     // Force redirect to Vercel URL for OAuth
-    const redirectUrl = 'https://blog-cms-ashen-five.vercel.app/auth/callback';
+    const redirectUrl = 'https://oywkxaufssfcavcquqod.supabase.co/auth/v1/callback';
     
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider,
