@@ -301,6 +301,22 @@ export const authApi = {
     return supabase.auth.onAuthStateChange(callback);
   },
 
+  async resetPassword(email: string) {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${import.meta.env.VITE_APP_URL || 'https://blog-cms-ashen-five.vercel.app'}/reset-password`
+    });
+    
+    if (error) throw error;
+  },
+
+  async updatePassword(newPassword: string, _accessToken: string, _refreshToken: string) {
+    const { error } = await supabase.auth.updateUser({
+      password: newPassword
+    });
+    
+    if (error) throw error;
+  },
+
   async signInWithGitHub() {
     // GitHub OAuth must redirect to Supabase callback URL
     const redirectUrl = 'https://oywkxaufssfcavcquqod.supabase.co/auth/v1/callback';

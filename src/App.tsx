@@ -15,6 +15,8 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 
 // Admin Pages
 import Dashboard from './components/admin/Dashboard';
@@ -112,6 +114,8 @@ const App: React.FC = () => {
       <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
       <Route path="/signin" element={<Layout><SignInPage /></Layout>} />
       <Route path="/signup" element={<Layout><SignUpPage /></Layout>} />
+      <Route path="/forgot-password" element={<Layout><ForgotPasswordPage /></Layout>} />
+      <Route path="/reset-password" element={<Layout><ResetPasswordPage /></Layout>} />
 
       {/* Admin Routes */}
       <Route
